@@ -9,7 +9,11 @@ var corOptions = {
   origin: 'https://localhost:8081'
 }
 
-// midleware
+// router
+const postRoutes = require('./routes/postRouter.js')
+app.use("/api/posts", postRoutes)
+
+// middleware
 
 app.use(cors(corOptions))
 
