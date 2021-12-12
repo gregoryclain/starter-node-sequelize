@@ -16,7 +16,7 @@ app.use(express.urlencoded({ extended: true }))
 
 // router
 const postRoutes = require('./routes/postRouter.js')
-// app.use("/api/posts", postRoutes)
+app.use("/api/posts", postRoutes)
 
 // testing api
 app.get('/', (req, res) => {
