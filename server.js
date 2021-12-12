@@ -9,30 +9,24 @@ var corOptions = {
   origin: 'https://localhost:8081'
 }
 
-// router
-const postRoutes = require('./routes/postRouter.js')
-app.use("/api/posts", postRoutes)
-
 // middleware
-
 app.use(cors(corOptions))
-
 app.use(express.json())
-
 app.use(express.urlencoded({ extended: true }))
 
-// testing api
+// router
+const postRoutes = require('./routes/postRouter.js')
+// app.use("/api/posts", postRoutes)
 
+// testing api
 app.get('/', (req, res) => {
   res.json({message: 'hello test'})
 })
 
 // port
-
 const PORT = process.env.PORT || 3000
 
 // server
-
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 })

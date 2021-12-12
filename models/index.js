@@ -1,6 +1,6 @@
 const dbConfig = require('../config/dbConfig.js');
 
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize} = require("sequelize");
 
 const sequelize = new Sequelize(
   dbConfig.DB,
@@ -20,7 +20,7 @@ const sequelize = new Sequelize(
 
 sequelize.authenticate()
   .then(() => {
-  console.log('Database connected')
+    console.log('Database connected')
   })
   .catch(err => {
     console.log('Error' + err);
@@ -31,7 +31,7 @@ const db = {}
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.posts = require('./postModel.js')(sequelize, DataTypes);
+db.posts = require('./postModel.js')(sequelize);
 db.sequelize.sync({ force: false })
 .then(() => {
   console.log ('yes re-sync done')

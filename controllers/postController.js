@@ -1,7 +1,6 @@
 const db = require('../models')
 
 const Post = db.posts;
-// const Review = db.reviews; // tempo pour plus tard
 
 // 1 create post
 const addPost = async (req, res) => {
